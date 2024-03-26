@@ -4,31 +4,37 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
+@Table(name="USERS")
 public class User {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @Column(name="USER_ID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    @Column(name="NAME")
     private String name;
+    @Column(name="EMAIL")
     private String email;
 
 
     public User() {
     }
 
-    public User(Integer id, String name, String email){
+    public User(Long id, String name, String email){
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id){
+    public void setId(Long id){
         this.id = id;
     }
 
